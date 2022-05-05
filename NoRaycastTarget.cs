@@ -3,12 +3,15 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// % Ctrl  # Shift & Alt
+/// </summary>
 public class NoRaycastTarget : MonoBehaviour
 {
     /// <summary>
     /// 自动取消RatcastTarget
     /// </summary>
-    [MenuItem("GameObject/UI/Image")]
+    [MenuItem("GameObject/UI/Image %#I")]
     static void CreatImage()
     {
         if (Selection.activeTransform)
@@ -18,6 +21,7 @@ public class NoRaycastTarget : MonoBehaviour
                 GameObject go = new GameObject("Image", typeof(Image));
                 go.GetComponent<Image>().raycastTarget = false;
                 go.transform.SetParent(Selection.activeTransform);
+                go.transform.localPosition = Vector3.zero;
             }
         }
         else
@@ -28,11 +32,12 @@ public class NoRaycastTarget : MonoBehaviour
                 GameObject go = new GameObject("Image", typeof(Image));
                 go.GetComponent<Image>().raycastTarget = false;
                 go.transform.SetParent(canvas.transform);
+                go.transform.localPosition = Vector3.zero;
             }
         }
     }
     //重写Create->UI->Text事件  
-    [MenuItem("GameObject/UI/Text")]
+    [MenuItem("GameObject/UI/Text %#T")]
     static void CreatText()
     {
         if (Selection.activeTransform)
@@ -46,6 +51,7 @@ public class NoRaycastTarget : MonoBehaviour
                 go.GetComponent<Text>().raycastTarget = false;
                 //设置其父物体  
                 go.transform.SetParent(Selection.activeTransform);
+                go.transform.localPosition = Vector3.zero;
             }
         }
         else
@@ -56,12 +62,13 @@ public class NoRaycastTarget : MonoBehaviour
                 GameObject go = new GameObject("Text", typeof(Text));
                 go.GetComponent<Text>().raycastTarget = false;
                 go.transform.SetParent(canvas.transform);
+                go.transform.localPosition = Vector3.zero;
             }
         }
     }
 
     //重写Create->UI->Text事件  
-    [MenuItem("GameObject/UI/Raw Image")]
+    [MenuItem("GameObject/UI/Raw Image %#R")]
     static void CreatRawImage()
     {
         if (Selection.activeTransform)
@@ -75,6 +82,7 @@ public class NoRaycastTarget : MonoBehaviour
                 go.GetComponent<RawImage>().raycastTarget = false;
                 //设置其父物体  
                 go.transform.SetParent(Selection.activeTransform);
+                go.transform.localPosition = Vector3.zero;
             }
         }
         else
@@ -85,6 +93,7 @@ public class NoRaycastTarget : MonoBehaviour
                 GameObject go = new GameObject("RawImage", typeof(RawImage));
                 go.GetComponent<RawImage>().raycastTarget = false;
                 go.transform.SetParent(canvas.transform);
+                go.transform.localPosition = Vector3.zero;
             }
         }
     }
